@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
           s.title.toLowerCase().includes(query) ||
           s.keywords.toLowerCase().includes(query)
         );
-        window.location.href = match ? match.url : "./404.html";
+        window.location.href = match ? match.url : "./webpages/404.html";
       }
     });
 
