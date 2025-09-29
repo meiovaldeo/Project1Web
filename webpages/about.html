@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/about.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/chatbox.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About ISign</title>
+
+</head>
+
+<body>
+    <button id="dark-toggle" class="dark-toggle">🌙</button>
+
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+
+    <div class="topbar">
+        <img src="../img/logo.png" alt="ISign" class="topbar-logo">
+        <nav class="navigation">
+            <a href="../index.html">Home</a>
+            <a href="./about.html">About</a>
+            <a href="./services.html">Services</a>
+            <a href="./info.html">Info</a>
+        </nav>
+
+    </div>
+    <div class="about-container">
+        <div class="about-header">
+            <img src="../img/logo.png" alt="ISign Logo" class="logo">
+            <h1>About Me</h1>
+        </div>
+        <div class="about-content">
+            <p>
+                Hello! I'm Gabriel, the sole purpose of this website is for educational purposes as part of my studies.
+                I am passionate about technology and dedicated to creating secure and user-friendly digital solutions.
+            </p>
+            <p>
+                As part of my school project, I am happy to showcase my knowledge and skills through this website. Thank
+                you for visiting ISign!
+            </p>
+        </div>
+        <div class="about-profile">
+
+            <div class="about-profile-details">
+                <h2>Gabriel</h2>
+                <p>Future Developer</p>
+                <p>
+                    <a href="mailto:gabrielvaldeo2007@gmail.com">Contact Me</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <button id="chatbox-open" class="chatbox-open">💬</button>
+    <div class="chatbox-container" id="chatbox" style="display:none;">
+        <div class="chatbox-header">
+            AI Chat
+            <span class="chatbox-close" id="chatbox-close">&times;</span>
+        </div>
+        <div class="chatbox-messages" id="chatbox-messages"></div>
+        <form class="chatbox-form" id="chatbox-form">
+            <input type="text" id="chatbox-input" placeholder="Type your message..." autocomplete="off" />
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script src="../script.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISign Information</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/info.css">
+    <link rel="stylesheet" href="../css/chatbox.css">
+</head>
+
+<body>
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+
+    <div class="topbar">
+        <img src="../img/logo.png" alt="ISign" class="topbar-logo">
+        <nav class="navigation">
+            <a href="../index.html">Home</a>
+            <a href="./about.html">About</a>
+            <a href="./services.html">Services</a>
+            <a href="./info.html">Info</a>
+        </nav>
+    </div>
+    <button id="dark-toggle" class="dark-toggle">🌙</button>
+    <div class="info-container">
+        <div class="info-header">
+            <img src="../img/logo.png" alt="ISign Logo" class="logo">
+            <h1>Information</h1>
+        </div>
+        <div class="info-content">
+            <h2>What is ISign?</h2>
+            <p>
+                ISign is a secure, user-friendly platform for digital signatures, document verification, and cloud
+                storage. Our goal is to make document management simple and safe for everyone.
+            </p>
+            <h2>How does ISign work?</h2>
+            <p>
+                You can upload documents, sign them digitally, verify their authenticity, and store them securely in the
+                cloud. All your data is encrypted and protected.
+            </p>
+            <h2>Why choose ISign?</h2>
+            <ul>
+                <li>Easy-to-use interface</li>
+                <li>Advanced security and encryption</li>
+                <li>Fast document verification</li>
+                <li>Reliable cloud storage</li>
+            </ul>
+            <h2>Contact & Support</h2>
+            <p>
+                For help or questions, email us at <a href="mailto:info@isign.com">info@isign.com</a>.
+            </p>
+        </div>
+    </div>
+
+    <button id="chatbox-open" class="chatbox-open">💬</button>
+    <div class="chatbox-container" id="chatbox" style="display:none;">
+        <div class="chatbox-header">
+            AI Chat
+            <span class="chatbox-close" id="chatbox-close">&times;</span>
+        </div>
+        <div class="chatbox-messages" id="chatbox-messages"></div>
+        <form class="chatbox-form" id="chatbox-form">
+            <input type="text" id="chatbox-input" placeholder="Type your message..." autocomplete="off" />
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>

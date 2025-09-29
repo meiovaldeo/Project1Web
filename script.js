@@ -1,0 +1,168 @@
+document.addEventListener("DOMContentLoaded", () => {
+  // Chatbox
+  const chatForm = document.getElementById('chatbox-form');
+  if (chatForm) {
+    chatForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = document.getElementById('chatbox-input');
+      const messages = document.getElementById('chatbox-messages');
+      if (!input || !messages) return;
+      const userMsg = input.value.trim();
+      if (!userMsg) return;
+      messages.innerHTML += `<div><b>You:</b> ${userMsg}</div>`;
+      input.value = '';
+
+      const aiResponses = [
+        "Sorry, I'm just a demo AI chat box!",
+        "Gabriel made me! though I'm not very smart yet.",
+        "I am made for the sole purpose of demonstrating a chat box."
+      ];
+      const randomResponse = aiResponses[Math.floor(Math.random() * aiResponses.length)];
+
+      setTimeout(() => {
+        messages.innerHTML += `<div><b>AI:</b> ${randomResponse}</div>`;
+        messages.scrollTop = messages.scrollHeight;
+      }, 700);
+      messages.scrollTop = messages.scrollHeight;
+    });
+
+    const chatClose = document.getElementById('chatbox-close');
+    const chatOpen = document.getElementById('chatbox-open');
+    if (chatClose) {
+      chatClose.addEventListener('click', () => {
+        const chat = document.getElementById('chatbox');
+        if (chat) chat.style.display = 'none';
+        if (chatOpen) chatOpen.style.display = 'flex';
+      });
+    }
+    if (chatOpen) {
+      chatOpen.addEventListener('click', function () {
+        const chat = document.getElementById('chatbox');
+        if (chat) chat.style.display = 'flex';
+        this.style.display = 'none';
+      });
+    }
+  }
+
+  // Search
+  const services = [
+    { title: "Digital Signature", url: "./webpages/services.html", keywords: "digital signature sign document" },
+    { title: "Document Verification", url: "./webpages/services.html", keywords: "verification check document" },
+    { title: "Cloud Storage", url: "./webpages/services.html", keywords: "cloud storage save document" }
+  ];
+
+  const searchInput = document.getElementById("search-input");
+  const searchResults = document.getElementById("search-results");
+
+  if (searchInput && searchResults) {
+    function renderSuggestions(list) {
+      searchResults.innerHTML = "";
+      list.forEach(service => {
+        const item = document.createElement("a");
+        item.href = service.url;
+        item.textContent = service.title;
+        item.classList.add("search-item");
+        searchResults.appendChild(item);
+      });
+      searchResults.classList.add("show");
+    }
+
+    searchInput.addEventListener("focus", () => renderSuggestions(services));
+
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.toLowerCase().trim();
+      if (!query) {
+        renderSuggestions(services);
+        return;
+      }
+      const matches = services.filter(s =>
+        s.title.toLowerCase().includes(query) ||
+        s.keywords.toLowerCase().includes(query)
+      );
+      if (matches.length > 0) renderSuggestions(matches);
+      else {
+        searchResults.innerHTML = "";
+        const noResult = document.createElement("div");
+        noResult.textContent = "No results found";
+        noResult.classList.add("no-results");
+        noResult.onclick = () => window.location.href = "./404.html";
+        searchResults.appendChild(noResult);
+        searchResults.classList.add("show");
+      }
+    });
+
+    searchInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const query = searchInput.value.toLowerCase().trim();
+        const match = services.find(s =>
+          s.title.toLowerCase().includes(query) ||
+          s.keywords.toLowerCase().includes(query)
+        );
+        window.location.href = match ? match.url : "./404.html";
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+        searchResults.classList.remove("show");
+      }
+    });
+  }
+
+  // Dark mode
+  const toggleBtn = document.getElementById("dark-toggle");
+  const body = document.body;
+  const saved = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  if (saved === "dark" || (saved === null && prefersDark)) {
+    body.classList.add("dark-mode");
+    if (toggleBtn) toggleBtn.textContent = "☀️";
+  } else {
+    body.classList.remove("dark-mode");
+    if (toggleBtn) toggleBtn.textContent = "🌙";
+  }
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      const isDark = body.classList.toggle("dark-mode");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+      toggleBtn.textContent = isDark ? "☀️" : "🌙";
+    });
+  }
+
+  // Modal
+  const cards = document.querySelectorAll('.service-card');
+  if (cards && cards.length) {
+    const modernModal = document.getElementById('serviceModal');
+    const modernTitle = modernModal ? modernModal.querySelector('#modalTitle') : null;
+    const modernText = modernModal ? modernModal.querySelector('#modalText') : null;
+
+    cards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        e.preventDefault();
+        const h = card.querySelector('h3');
+        const title = h ? h.textContent.trim() : 'Service';
+        const p = card.querySelector('p');
+        const content = p ? `<p>${p.textContent}</p>` : '<p>No details available.</p>';
+
+        if (modernModal && modernTitle && modernText) {
+          modernTitle.innerHTML = title;
+          modernText.innerHTML = content;
+          modernModal.classList.add('show');
+        } else {
+          window.location.href = './webpages/services.html';
+        }
+      });
+    });
+
+    if (modernModal) {
+      const modernClose = modernModal.querySelector('.close-btn');
+      if (modernClose) modernClose.addEventListener('click', () => modernModal.classList.remove('show'));
+      modernModal.addEventListener('click', (e) => {
+        if (e.target === modernModal) modernModal.classList.remove('show');
+      });
+    }
+  }
+});

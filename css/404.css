@@ -1,0 +1,52 @@
+/* === 404.CSS === */
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #f9fafc;
+  text-align: center;
+  margin: 0;
+ }
+
+.error-container {
+  max-width: 600px;
+  padding: 24px;
+ }
+
+.error-code {
+  font-size: 96px;
+  font-weight: bold;
+  color: #2d3e50;
+  margin: 0;
+ }
+
+.error-message {
+  font-size: 20px;
+  color: #555;
+  margin: 12px 0 24px;
+ }
+
+.error-btn {
+  background: #2d3e50;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+ }
+
+.error-btn:hover {
+  background: #1b2530;
+ }
+
+.logo {
+  width: 100px;
+  margin-bottom: 16px;
+ }

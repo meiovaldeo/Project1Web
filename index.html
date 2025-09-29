@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISign - Home</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/chatbox.css">
+</head>
+
+<body>
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+
+    <div class="topbar">
+        <img src="./img/logo.png" alt="ISign" class="topbar-logo">
+        <nav class="navigation">
+            <a href="./index.html">Home</a>
+            <a href="./webpages/about.html">About</a>
+            <a href="./webpages/services.html">Services</a>
+            <a href="./webpages/info.html">Info</a>
+        </nav>
+
+        <form id="site-search" class="topbar-search">
+            <input type="text" id="search-input" placeholder="Search ISign..." class="search-input">
+            <div id="search-results" class="search-results"></div>
+        </form>
+    </div>
+    <button id="dark-toggle" class="dark-toggle">🌙</button>
+    <div class="home-container">
+        <div class="ball"></div>
+        <div class="home-header">
+            <img src="./img/logo.png" alt="ISign Logo" class="home-logo">
+            <h1>Welcome to ISign</h1>
+            <p class="home-tagline">Secure. Simple. Smart Document Solutions.</p>
+        </div>
+        <div class="home-content">
+            <p>
+                ISign offers digital signature, document verification, and secure cloud storage services to help you
+                manage your documents with ease and confidence.
+            </p>
+            <a href="./webpages/info.html" class="home-btn">Explore Our Services</a>
+        </div>
+    </div>
+
+    <button id="chatbox-open" class="chatbox-open">💬</button>
+    <div class="chatbox-container" id="chatbox" style="display:none;">
+        <div class="chatbox-header">
+            AI Chat
+            <span class="chatbox-close" id="chatbox-close">&times;</span>
+        </div>
+        <div class="chatbox-messages" id="chatbox-messages"></div>
+        <form class="chatbox-form" id="chatbox-form">
+            <input type="text" id="chatbox-input" placeholder="Type your message..." autocomplete="off" />
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="./script.js"></script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,211 @@
+/* === SERVICES.CSS === */
+
+.services-container {
+    max-width: 900px;
+    margin: 60px auto 0 auto;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    padding: 40px 30px;
+    background: var(--panel);
+    color: var(--text);
+    transition: background-color 0.6s ease, color 0.6s ease;
+ }
+
+.services-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 32px;
+ }
+
+.services-header img {
+    height: 60px;
+ }
+
+.services-header h1 {
+    font-size: 2.3rem;
+    color: var(--text);
+    margin: 0;
+ }
+
+.service-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+ }
+
+.service-card {
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    width: 260px;
+    padding: 24px 18px;
+    text-align: center;
+    transition: box-shadow 0.2s;
+    background: var(--panel);
+    color: var(--text);
+    transition: background-color 0.4s, color 0.4s;
+ }
+
+.service-card h3,
+.service-card p {
+    color: var(--text);
+ }
+
+.service-card:hover {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.13);
+    background: var(--panel);
+    color: #fff;
+ }
+
+.service-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 16px;
+ }
+
+
+.contact-btn {
+    display: block;
+    margin: 40px auto 0 auto;
+    padding: 12px 32px;
+    background: #2d3e50;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+ }
+
+.contact-btn:hover {
+    background: #1a2a3a;
+ }
+
+.service-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(44, 62, 80, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+ }
+
+.service-modal-content {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(44, 62, 80, 0.18);
+    padding: 32px 28px;
+    max-width: 400px;
+    width: 90vw;
+    position: relative;
+    animation: modalFadeIn 0.2s;
+ }
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+ }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+ }
+ }
+
+.service-modal-close {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    font-size: 2rem;
+    color: #ff3b3b;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.2s;
+    z-index: 10;
+ }
+
+.service-modal-close:hover {
+    color: #c70000;
+ }
+
+#service-modal-body h2 {
+    margin-top: 0;
+    color: #2d3e50;
+    font-size: 1.5rem;
+ }
+
+#service-modal-body p,
+#service-modal-body ul {
+    color: #3a4a5a;
+    font-size: 1rem;
+    margin-bottom: 12px;
+ }
+
+#service-modal-body ul {
+    padding-left: 20px;
+ }
+
+@media (max-width: 800px) {
+    .service-list {
+        flex-direction: column;
+        align-items: center;
+ }
+
+    .services-container {
+        padding: 24px 8px;
+ }
+ }
+
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+ }
+
+.modal.show {
+    opacity: 1;
+    pointer-events: auto;
+ }
+
+.modal-content {
+    background: #fff;
+    padding: 24px;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+ }
+
+.modal.show .modal-content {
+    transform: scale(1);
+ }
+
+.close-btn {
+    position: absolute;
+    right: 16px;
+    top: 12px;
+    font-size: 28px;
+    cursor: pointer;
+ }

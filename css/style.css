@@ -1,0 +1,506 @@
+/* === STYLE.CSS === */
+
+:root {
+  --bg: #f9f9f9;
+  --text: #2d3e50;
+  --panel: #ffffff;
+  --accent: #0077cc;
+ }
+
+body.dark-mode {
+  --bg: #1e1e1e;
+  --text: #f1f1f1;
+  --panel: #2b2b2b;
+  --accent: #3399ff;
+ }
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.4s, color 0.4s;
+ }
+
+/* SEARCH BAR*/
+.topbar-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  background: #fff;
+  border-radius: 24px;
+  padding: 4px 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+ }
+
+.search-input {
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+  border-radius: 24px;
+  font-size: 14px;
+  width: 180px;
+  transition: width 0.3s ease;
+ }
+
+.search-input:focus {
+  width: 260px;
+ }
+
+.search-btn {
+  background: #2d3e50;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+ }
+
+.search-btn:hover {
+  background: #1b2530;
+ }
+
+.search-results {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  right: 0;
+  background: var(--panel);
+  color: var(--text);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 999;
+ }
+
+.search-results.show {
+  display: flex;
+ }
+
+.search-results div,
+.search-results a {
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  color: var(--text);
+  text-decoration: none;
+ }
+
+
+.search-results div:last-child,
+.search-results a:last-child {
+  border-bottom: none;
+ }
+
+.search-results div:hover,
+.search-results a:hover {
+  background: rgba(0,0,0,0.05);
+ }
+
+/* Dark mode adjustments */
+body.dark-mode .search-results div,
+body.dark-mode .search-results a {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  color: var(--text);
+ }
+
+body.dark-mode .search-results div:hover,
+body.dark-mode .search-results a:hover {
+  background: rgba(255,255,255,0.12); /* higher contrast hover */
+ }
+
+
+
+
+
+
+/*TOPBAR*/
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 40px;
+    background: rgba(255,255,255,0.85);
+    box-shadow: 0 2px 16px rgba(44,62,80,0.08);
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    position: relative;
+    z-index: 10;
+ }
+.topbar-logo {
+    width: 160px;
+    height: auto;
+    margin-right: 24px;
+    transition: transform 0.2s;
+    filter: none;
+ }
+.topbar-logo:hover {
+    transform: scale(1.05) rotate(-2deg);
+ }
+.navigation {
+    display: flex;
+    gap: 32px;
+ }
+.navigation a {
+    color: #2d3e50;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 19px;
+    padding: 8px 18px;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+    letter-spacing: 0.5px;
+    position: relative;
+ }
+.navigation a:hover, .navigation a.active {
+    background: #b3b3e9;
+    transform: scale(1.05) rotate(-2deg);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(87,90,248,0.13);
+ }
+
+
+/*INNER WEBSITE*/
+html {
+  height: 100%;
+ }
+
+
+
+body {
+  background: var(--bg);
+  color: var(--text);
+ }
+
+.navigation a {
+  color: var(--text);
+ }
+
+.search-results {
+  background: var(--panel);
+  color: var(--text);
+ }
+
+.search-results div {
+  color: var(--text);
+ }
+
+.no-results {
+  color: var(--muted);
+ }
+
+.home-tagline {
+  color: var(--muted);
+ }
+
+.bg {
+  animation: slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, rgb(181, 250, 255) 50%, rgb(171, 200, 236) 50%);
+  bottom: 0;
+  left: -50%;
+  opacity: .5;
+  position: fixed;
+  right: -50%;
+  top: 0;
+  z-index: -1;
+ }
+
+.bg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 4s;
+ }
+
+.bg3 {
+  animation-duration: 5s;
+ }
+
+h1 {
+  font-family: monospace;
+ }
+
+@keyframes slide {
+  0% {
+    transform: translateX(-25%);
+ }
+  100% {
+    transform: translateX(25%);
+ }
+ }
+
+@media (max-width: 700px) {
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 10px;
+        border-radius: 0 0 12px 12px;
+        background: rgba(255,255,255,0.95);
+ }
+    .topbar-logo {
+        width: 120px;
+        margin-bottom: 10px;
+ }
+    .navigation {
+        gap: 12px;
+ }
+    .navigation a {
+        font-size: 16px;
+        padding: 6px 10px;
+ }
+    .topbar-search {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 10px;
+ }
+    .search-input {
+        width: 100%;
+        min-width: 0;
+ }
+}
+
+
+
+/* CHAT BOX */
+.chatbox-open {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  background: var(--panel);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+ }
+
+.chatbox-open:hover {
+  background: #1b2530;
+  transform: scale(1.1);
+ }
+/* END CHAT */
+
+
+/* --- Dark Mode Toggle --- */
+/* Dark mode toggle floating button */
+.dark-toggle {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 999;
+  background: var(--panel);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+ }
+
+.dark-toggle:hover {
+  background: #1b2530;
+  transform: scale(1.1);
+ }
+
+/* Dark theme variables */
+:root {
+  --bg: #ffffff;
+  --panel: #ffffff;
+  --text: #222222;
+  --muted: #666666;
+  --accent: #2d3e50;
+ }
+
+body.dark-mode {
+  --bg: #111217;
+  --panel: #1f1f23;
+  --text: #e9eef2;
+  --muted: #9aa4ad;
+  --accent: #2d3e503b;
+  background: var(--bg);
+  color: var(--text);
+ }
+
+/* Apply dark colors to UI elements */
+.topbar,
+.home-container,
+.service-card,
+.modal-content,
+.error-container {
+  background: var(--panel);
+  color: var(--text);
+ }
+
+body.dark-mode .navigation a {
+  color: var(--text);
+ }
+
+body.dark-mode .search-results {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.05);
+ }
+
+/* --- Dark Mode Backgrounds --- */
+body.dark-mode .bg {
+  background-image: linear-gradient(-60deg, #5d5d66 50%, #232336 50%);
+ }
+
+body.dark-mode .bg2 {
+  background-image: linear-gradient(-60deg, #5f5f68 50%, #171729 50%);
+ }
+
+body.dark-mode .bg3 {
+  background-image: linear-gradient(-60deg, #464649 50%, #12121a 50%);
+ }
+
+
+/* light */
+.topbar-logo,
+.home-logo {
+  content: url("../img/logo.png");
+ }
+
+.logo {
+    content: url("../img/logo.png");
+ }
+body.dark-mode .logo {
+    content: url("../img/dark-mode-logo.png");
+ }
+/* dark */
+body.dark-mode .topbar-logo,
+body.dark-mode .home-logo {
+  content: url("../img/dark-mode-logo.png");
+ }
+
+/* Generic button styling */
+button,
+.home-btn,
+.error-btn,
+.contact-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+ }
+
+button:hover,
+.home-btn:hover,
+.error-btn:hover,
+.contact-btn:hover {
+  background: #1b2530;
+ }
+
+body.dark-mode .service-card,
+body.dark-mode .modal-content,
+body.dark-mode .error-container,
+body.dark-mode .home-container {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.08);
+ }
+
+body.dark-mode .search-results {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.08);
+ }
+
+body.dark-mode .search-results div:hover,
+body.dark-mode .search-results a:hover {
+  background: rgba(255,255,255,0.08);
+ }
+
+body.dark-mode .chatbox-container {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.08);
+ }
+
+body.dark-mode .chatbox-header {
+  background: #2d2d2d;
+  color: var(--text);
+ }
+
+body.dark-mode .chatbox-messages {
+  background: var(--bg);
+  color: var(--text);
+ }
+
+body,
+.topbar,
+.home-container,
+.service-card,
+.modal-content,
+.error-container,
+.search-results,
+.chatbox-container,
+.chatbox-header,
+.chatbox-messages {
+  transition: background-color 0.8s ease, color 0.8s ease, border-color 0.8s ease;
+ }
+
+/* Background layers */
+.bg,
+.bg2,
+.bg3 {
+  transition: background-image 1.2s ease;
+ }
+
+:root {
+  --bg: #ffffff;
+  --panel: #ffffff;
+  --text: #222222;
+  --muted: #555555;
+  --accent: #2d3e50;
+ }
+
+body.dark-mode {
+  --bg: #111217;
+  --panel: #1c1c23;
+  --text: #f5f7fa;   /* brighter for readability */
+  --muted: #c0c4cc;  /* lighter gray for muted text */
+  --accent: #7c8cff; /* softer accent for dark mode */
+ }
+
+body,
+.topbar,
+.home-container,
+.service-card,
+.modal-content,
+.error-container,
+.search-results,
+.chatbox-container,
+.chatbox-header,
+.chatbox-messages {
+  transition: background-color 0.8s ease, color 0.8s ease, border-color 0.8s ease;
+ }
+
