@@ -1,0 +1,140 @@
+
+.pricing-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 28px;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.pricing-box {
+  flex: 1 1 280px;
+  max-width: 300px;
+  background: var(--panel);
+  color: var(--text);
+  border: 2px solid var(--accent);
+  border-radius: 14px;
+  transform: translateY(-12px);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px 18px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.pricing-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
+}
+
+.plan-header {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.plan-header h2 {
+  font-size: 1.2rem;
+  margin: 10px 0 0;
+}
+ 
+.plan-body {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.plan-body h3 {
+  font-size: 1.4rem;
+  margin: 10px 0;
+}
+
+.price {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px;
+  text-align: left;
+}
+
+.features li {
+  margin: 6px 0;
+  font-size: 0.95rem;
+}
+
+.note {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 10px 0;
+  flex-grow: 1;
+}
+
+
+.plan-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  margin-top: auto;
+  transition: background 0.3s;
+}
+.plan-btn-current {
+  background: var(--muted);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  margin-top: auto;
+  transition: background 0.3s;
+}
+.plan-btn:hover {
+  background: #1b2530;
+}
+
+
+@media (max-width: 1100px) {
+  .pricing-box {
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 720px) {
+  .pricing-box {
+    max-width: 100%;
+  }
+}
+
+.pricing-box .logo {
+  width: 50%;  
+  height: auto;
+  margin-bottom: 8px;
+}
+
+.tag {
+  position: absolute;
+  top: 30px;
+  right: -55px;
+  transform: rotate(45deg);
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: bold;
+  padding: 7px 40px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
