@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const noResult = document.createElement("div");
         noResult.textContent = "No results found";
         noResult.classList.add("no-results");
-        noResult.onclick = () => window.location.href = "./404.html";
+        noResult.onclick = () => window.location.href = "./webpages/404.html";
         searchResults.appendChild(noResult);
         searchResults.classList.add("show");
       }
