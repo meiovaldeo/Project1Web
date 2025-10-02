@@ -136,13 +136,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const planBtns = document.querySelectorAll('.plan-btn');
   let currentSubSaved = localStorage.getItem("currentPlan");
 
-  // Set Basic as default if nothing is chosen yet
   if (!currentSubSaved) {
     currentSubSaved = "Basic";
     localStorage.setItem("currentPlan", "Basic");
   }
 
-  // Reset all plan buttons
+
   planBtns.forEach(btn => {
     const planName = btn.getAttribute('data-plan');
     btn.textContent = `Choose ${planName}`;
@@ -150,7 +149,6 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.classList.remove('disabled', 'current-plan-btn');
   });
 
-  // Highlight and disable the current plan button
   planBtns.forEach(btn => {
     const planName = btn.getAttribute('data-plan');
     if (planName === currentSubSaved) {
@@ -179,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Mystery modal close logic
+  // Mystery modal
   const mysteryModal = document.getElementById('mystery-modal');
   const mysteryModalClose = document.getElementById('mystery-modal-close');
   if (mysteryModal && mysteryModalClose) {
