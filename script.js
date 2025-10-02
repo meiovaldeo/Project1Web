@@ -132,6 +132,37 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  /*
+  //Change Subscription
+  const subBtn = document.getElementById('plan-btn');
+  const currentSubSaved = localStorage.getItem("currentPlan");
+  if (currentSubSaved) {
+    const currentPlanBtn = document.querySelector('.plan-btn-current');
+    if (currentPlanBtn) {
+      currentPlanBtn.textContent = `Current Plan: ${currentSubSaved}`;
+      currentPlanBtn.disabled = true;
+      currentPlanBtn.classList.add('disabled');
+    }
+    if (subBtn) {
+      subBtn.textContent = `Choose ${currentSubSaved}`;
+    }
+  }
+
+  if (subBtn) {
+    subBtn.addEventListener('click', () => {
+      let selectedPlan = "";
+      if (subBtn.textContent.includes('Hacker')) selectedPlan = 'Hacker';
+      else if (subBtn.textContent.includes('Noob')) selectedPlan = 'Noob';
+      else if (subBtn.textContent.includes('God')) selectedPlan = 'God';
+
+      localStorage.setItem("currentPlan", selectedPlan);
+      alert(`You have selected the ${selectedPlan} plan!`);
+      window.location.reload();
+    });
+  }
+  */
+
+
   // Modal
   const cards = document.querySelectorAll('.service-card');
   if (cards && cards.length) {
@@ -166,3 +197,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+
+

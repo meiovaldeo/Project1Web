@@ -26,6 +26,12 @@
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
+.whysoserious {
+  border: 2px solid var(--accent);
+  border-radius: 14px;
+  padding: 24px 18px;
+}
+
 .pricing-box:hover {
   transform: translateY(-8px);
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
