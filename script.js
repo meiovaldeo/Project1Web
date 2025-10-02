@@ -132,38 +132,70 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /*
-  //Change Subscription
-  const subBtn = document.getElementById('plan-btn');
-  const currentSubSaved = localStorage.getItem("currentPlan");
-  if (currentSubSaved) {
-    const currentPlanBtn = document.querySelector('.plan-btn-current');
-    if (currentPlanBtn) {
-      currentPlanBtn.textContent = `Current Plan: ${currentSubSaved}`;
-      currentPlanBtn.disabled = true;
-      currentPlanBtn.classList.add('disabled');
-    }
-    if (subBtn) {
-      subBtn.textContent = `Choose ${currentSubSaved}`;
-    }
+  // Pricing Plans
+  const planBtns = document.querySelectorAll('.plan-btn');
+  let currentSubSaved = localStorage.getItem("currentPlan");
+
+  // Set Basic as default if nothing is chosen yet
+  if (!currentSubSaved) {
+    currentSubSaved = "Basic";
+    localStorage.setItem("currentPlan", "Basic");
   }
 
-  if (subBtn) {
-    subBtn.addEventListener('click', () => {
-      let selectedPlan = "";
-      if (subBtn.textContent.includes('Hacker')) selectedPlan = 'Hacker';
-      else if (subBtn.textContent.includes('Noob')) selectedPlan = 'Noob';
-      else if (subBtn.textContent.includes('God')) selectedPlan = 'God';
+  // Reset all plan buttons
+  planBtns.forEach(btn => {
+    const planName = btn.getAttribute('data-plan');
+    btn.textContent = `Choose ${planName}`;
+    btn.disabled = false;
+    btn.classList.remove('disabled', 'current-plan-btn');
+  });
 
-      localStorage.setItem("currentPlan", selectedPlan);
-      alert(`You have selected the ${selectedPlan} plan!`);
+  // Highlight and disable the current plan button
+  planBtns.forEach(btn => {
+    const planName = btn.getAttribute('data-plan');
+    if (planName === currentSubSaved) {
+      btn.textContent = `Current Plan`;
+      btn.disabled = true;
+      btn.classList.add('disabled', 'current-plan-btn');
+    } else {
+      btn.addEventListener('click', () => {
+        localStorage.setItem("currentPlan", planName);
+        if (planName === "Mystery") {
+          const modal = document.getElementById('mystery-modal');
+          if (modal) {
+            modal.style.display = 'flex';
+            const content = modal.querySelector('.modal-content');
+            if (content) {
+              content.classList.remove('jumpscare');
+              void content.offsetWidth;
+              content.classList.add('jumpscare');
+            }
+          }
+        } else {
+          alert(`You have selected the ${planName} plan!`);
+          window.location.reload();
+        }
+      });
+    }
+  });
+
+  // Mystery modal close logic
+  const mysteryModal = document.getElementById('mystery-modal');
+  const mysteryModalClose = document.getElementById('mystery-modal-close');
+  if (mysteryModal && mysteryModalClose) {
+    mysteryModalClose.onclick = () => {
+      mysteryModal.style.display = 'none';
       window.location.reload();
-    });
+    };
+    window.onclick = (event) => {
+      if (event.target === mysteryModal) {
+        mysteryModal.style.display = 'none';
+        window.location.reload();
+      }
+    };
   }
-  */
 
-
-  // Modal
+  // Service Modal
   const cards = document.querySelectorAll('.service-card');
   if (cards && cards.length) {
     const modernModal = document.getElementById('serviceModal');
@@ -197,5 +229,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
-
-

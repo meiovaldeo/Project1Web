@@ -502,3 +502,51 @@ body,
   transition: background-color 0.8s ease, color 0.8s ease, border-color 0.8s ease;
  }
 
+ /* Hero animation styles */
+.home-header {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.home-logo {
+  width: 160px;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fadeInLogo 1s ease-out forwards;
+}
+
+.home-header h1 {
+  font-size: 2.8em;
+  margin: 20px 0 10px 0;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInTitle 1s 0.5s ease-out forwards;
+}
+
+.home-tagline {
+  font-size: 1.3em;
+  color: #4caf50;
+  opacity: 0;
+  animation: fadeInTagline 1s 1s ease-out forwards;
+}
+
+@keyframes fadeInLogo {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInTitle {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInTagline {
+  to {
+    opacity: 1;
+  }
+}
+

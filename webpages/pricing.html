@@ -47,7 +47,7 @@
                     <li>Email support</li>
                 </ul>
                 <p class="note">Good for individuals testing the free features.</p>
-                <button class="plan-btn-current">Current Plan</button>
+                <button class="plan-btn" data-plan="Basic">Choose Basic</button>
             </div>
         </div>
 
@@ -66,7 +66,7 @@
                     <li>Email support</li>
                 </ul>
                 <p class="note">Ideal for individuals and small teams.</p>
-                <button id="plan-btn" class="plan-btn">Choose Noob</button>
+                <button class="plan-btn" data-plan="Noob">Choose Noob</button>
             </div>
         </div>
 
@@ -87,7 +87,7 @@
                     <li>Priority email & chat support</li>
                 </ul>
                 <p class="note">Perfect for professionals & growing teams.</p>
-                <button id="plan-btn" class="plan-btn" >Choose Hacker</button>
+                <button class="plan-btn" data-plan="Hacker">Choose Hacker</button>
             </div>
         </div>
 
@@ -108,7 +108,7 @@
                     <li>Dedicated account manager 24/7</li>
                 </ul>
                 <p class="note">Best for large enterprises & organizations.</p>
-                <button id="plan-btn" class="plan-btn">Choose God</button>
+                <button class="plan-btn" data-plan="God">Choose God</button>
             </div>
         </div>
 
@@ -125,7 +125,7 @@
                     <li>Classified, only for Mystery Plan Members</li>
                 </ul>
                 <p class="note">Best to reduce expenses</p>
-                <button id="plan-btn" class="plan-btn">Choose Mystery</button>
+                <button class="plan-btn" data-plan="Mystery">Choose Mystery</button>
             </div>
         </div>
 
@@ -142,6 +142,15 @@
             <input type="text" id="chatbox-input" placeholder="Type your message..." autocomplete="off" />
             <button type="submit">Send</button>
         </form>
+    </div>
+    <div id="mystery-modal" class="modal" style="display:none;">
+        <div class="modal-content jumpscare">
+            <span class="close-btn" id="mystery-modal-close">&times;</span>
+            <h2>MYSTERY UNLOCKED!</h2>
+            <img src="../img/whysoserious.gif" alt="Jumpscare GIF"
+                style="width:100%;max-width:600px;">
+            <p>Welcome to the Mystery Plan!</p>
+        </div>
     </div>
 
     <script src="../script.js"></script>
