@@ -169,6 +169,28 @@ document.addEventListener("DOMContentLoaded", () => {
               content.classList.add('jumpscare');
             }
           }
+        } else if (planName === "God") {
+          const modal = document.getElementById('god-modal');
+          if (modal) {
+            modal.style.display = 'flex';
+            const content = modal.querySelector('.modal-content');
+            if (content) {
+              content.classList.remove('jumpscare');
+              void content.offsetWidth;
+              content.classList.add('jumpscare');
+            }
+          }
+        } else if (planName === "Noob") {
+          const modal = document.getElementById('noob-modal');
+          if (modal) {
+            modal.style.display = 'flex';
+            const content = modal.querySelector('.modal-content');
+            if (content) {
+              content.classList.remove('jumpscare');
+              void content.offsetWidth;
+              content.classList.add('jumpscare');
+            }
+          } 
         } else {
           alert(`You have selected the ${planName} plan!`);
           window.location.reload();
@@ -188,6 +210,37 @@ document.addEventListener("DOMContentLoaded", () => {
     window.onclick = (event) => {
       if (event.target === mysteryModal) {
         mysteryModal.style.display = 'none';
+        window.location.reload();
+      }
+    };
+  }
+
+  // God modal
+  const godModal = document.getElementById('god-modal');
+  const godModalClose = document.getElementById('god-modal-close');
+  if (godModal && godModalClose) {
+    godModalClose.onclick = () => {
+      godModal.style.display = 'none';
+      window.location.reload();
+    };
+    window.onclick = (event) => {
+      if (event.target === godModal) {
+        godModal.style.display = 'none';
+        window.location.reload();
+      }
+    };
+  }
+  // Noob modal
+  const noobModal = document.getElementById('noob-modal');
+  const noobModalClose = document.getElementById('noob-modal-close');
+  if (noobModal && noobModalClose) {
+    noobModalClose.onclick = () => {
+      noobModal.style.display = 'none';
+      window.location.reload();
+    };
+    window.onclick = (event) => {
+      if (event.target === noobModal) {
+        noobModal.style.display = 'none';
         window.location.reload();
       }
     };
