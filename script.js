@@ -277,7 +277,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
   if (basicAdvert && currentPlan === "Basic") {
-    // Pick a random image
     if (advertImg) {
       const idx = Math.floor(Math.random() * advertImages.length);
       advertImg.src = advertImages[idx];
