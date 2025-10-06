@@ -44,6 +44,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  const loadingOverlay = document.getElementById('loading-overlay');
+  document.querySelectorAll('a').forEach(link => {
+    // Only intercept local links (not anchors or external)
+    link.addEventListener('click', function (e) {
+      const href = link.getAttribute('href');
+      if (
+        href &&
+        !href.startsWith('#') &&
+        !href.startsWith('mailto:') &&
+        !href.startsWith('javascript:') &&
+        !link.hasAttribute('target')
+      ) {
+        e.preventDefault();
+        if (loadingOverlay) loadingOverlay.style.display = 'flex';
+        setTimeout(() => {
+          window.location.href = href;
+        }, 700); // Show loading for 0.7s
+      }
+    });
+  });
+
   // Search
   const services = [
     { title: "Digital Signature", url: "./webpages/services.html", keywords: "digital signature sign document" },
@@ -190,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
               void content.offsetWidth;
               content.classList.add('jumpscare');
             }
-          } 
+          }
         } else {
           alert(`You have selected the ${planName} plan!`);
           window.location.reload();
@@ -230,21 +251,46 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
   }
-  // Noob modal
-  const noobModal = document.getElementById('noob-modal');
-  const noobModalClose = document.getElementById('noob-modal-close');
-  if (noobModal && noobModalClose) {
-    noobModalClose.onclick = () => {
-      noobModal.style.display = 'none';
-      window.location.reload();
-    };
-    window.onclick = (event) => {
-      if (event.target === noobModal) {
-        noobModal.style.display = 'none';
-        window.location.reload();
-      }
-    };
+
+  //ADVERT
+  const basicAdvert = document.getElementById('basic-advert');
+  const advertClose = document.getElementById('advert-close');
+  const advertImg = document.getElementById('advert-img');
+  let currentPlan = localStorage.getItem("currentPlan");
+
+  const isInWebpages = window.location.pathname.toLowerCase().includes('/webpages/');
+
+  const advertImages = isInWebpages
+  ? [
+      "../advertImg/letssub.png",
+      "../advertImg/noobvsmystery.jpg",
+      "../advertImg/notsub.png",
+      "../advertImg/whyishe.png",
+      "../advertImg/whynot.png"
+    ]
+  : [
+      "./advertImg/letssub.png",
+      "./advertImg/noobvsmystery.jpg",
+      "./advertImg/notsub.png",
+      "./advertImg/whyishe.png",
+      "./advertImg/whynot.png"
+    ];
+
+  if (basicAdvert && currentPlan === "Basic") {
+    // Pick a random image
+    if (advertImg) {
+      const idx = Math.floor(Math.random() * advertImages.length);
+      advertImg.src = advertImages[idx];
+    }
+    basicAdvert.style.display = "block";
+    if (advertClose) {
+      advertClose.onclick = () => {
+        basicAdvert.style.display = "none";
+      };
+    }
   }
+
+
 
   // Service Modal
   const cards = document.querySelectorAll('.service-card');
