@@ -130,12 +130,29 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-
+  const isInWebpages = window.location.pathname.toLowerCase().includes('/webpages/');
   // Dark mode
   const toggleBtn = document.getElementById("dark-toggle");
   const body = document.body;
   const saved = localStorage.getItem("theme");
   const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  const footerLogo = document.querySelector('.footer-logo');
+  const darkLogo = isInWebpages ? '../img/dark-mode-logo.png' : './img/dark-mode-logo.png';
+  const lightLogo = isInWebpages ? '../img/logo.png' : './img/logo.png';
+
+
+  function updateFooterLogo() {
+    if (!footerLogo) return;
+    if (document.body.classList.contains('dark-mode')) {
+      footerLogo.src = darkLogo;
+    } else {
+      footerLogo.src = lightLogo;
+    }
+  }
+
+
+  updateFooterLogo();
 
   if (saved === "dark" || (saved === null && prefersDark)) {
     body.classList.add("dark-mode");
@@ -151,6 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("theme", isDark ? "dark" : "light");
       toggleBtn.textContent = isDark ? "☀️" : "🌙";
     });
+    toggleBtn.addEventListener("click", updateFooterLogo);
   }
 
   // Pricing Plans
@@ -220,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Mystery modal
+
   const mysteryModal = document.getElementById('mystery-modal');
   const mysteryModalClose = document.getElementById('mystery-modal-close');
   if (mysteryModal && mysteryModalClose) {
@@ -228,15 +246,15 @@ document.addEventListener("DOMContentLoaded", () => {
       mysteryModal.style.display = 'none';
       window.location.reload();
     };
-    window.onclick = (event) => {
+    window.addEventListener('click', (event) => {
       if (event.target === mysteryModal) {
         mysteryModal.style.display = 'none';
         window.location.reload();
       }
-    };
+    });
   }
 
-  // God modal
+
   const godModal = document.getElementById('god-modal');
   const godModalClose = document.getElementById('god-modal-close');
   if (godModal && godModalClose) {
@@ -244,31 +262,30 @@ document.addEventListener("DOMContentLoaded", () => {
       godModal.style.display = 'none';
       window.location.reload();
     };
-    window.onclick = (event) => {
+    window.addEventListener('click', (event) => {
       if (event.target === godModal) {
         godModal.style.display = 'none';
         window.location.reload();
       }
-    };
+    });
   }
-
   //ADVERT
   const basicAdvert = document.getElementById('basic-advert');
   const advertClose = document.getElementById('advert-close');
   const advertImg = document.getElementById('advert-img');
   let currentPlan = localStorage.getItem("currentPlan");
 
-  const isInWebpages = window.location.pathname.toLowerCase().includes('/webpages/');
+
 
   const advertImages = isInWebpages
-  ? [
+    ? [
       "../advertImg/letssub.png",
       "../advertImg/noobvsmystery.jpg",
       "../advertImg/notsub.png",
       "../advertImg/whyishe.png",
       "../advertImg/whynot.png"
     ]
-  : [
+    : [
       "./advertImg/letssub.png",
       "./advertImg/noobvsmystery.jpg",
       "./advertImg/notsub.png",

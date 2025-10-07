@@ -676,3 +676,40 @@ body,
   margin: 0 auto 14px auto;
   border-radius: 10px;
 }
+
+.site-footer {
+  background: var(--panel);
+  color: var(--text);
+  text-align: center;
+  padding: 6px 0 4px 0;
+  margin-top: 0;
+  font-size: 0.85em;
+  position: fixed;    /* Fixed to bottom */
+  left: 0;            /* Start at left edge */
+  bottom: 0;          /* Stick to bottom */
+  width: 100vw;       /* Full viewport width */
+  z-index: 1;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.03);
+}
+.footer-content {
+  max-width: 400px;
+  margin: 0 auto;
+}
+.footer-logo {
+  width: 80px;               
+  vertical-align: middle;
+  margin-bottom: 2px;
+}
+.footer-links {
+  margin-top: 2px;
+}
+.footer-links a {
+  color: var(--text);
+  text-decoration: none;
+  margin: 0 2px;
+  font-weight: 500;
+  font-size: 0.95em;
+}
+.footer-links a:hover {
+  text-decoration: underline;
+}
